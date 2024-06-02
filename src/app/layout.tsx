@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+
 import "./globals.css";
+
+import UserGlobalContext from "@/server/context/user.context";
+import GameGlobalContext from "@/server/context/game.context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-[url('/icon.png')] bg-no-repeat bg-cover">
-          <div className="container mx-auto h-screen border-x-white border-x-4 border-solid">
-            {children}
-          </div>
-        </div>
+        <UserGlobalContext>
+          <GameGlobalContext>
+            <div className="bg-[url('/icon.png')] bg-no-repeat bg-cover">
+              <div className="container mx-auto h-screen border-x-white border-x-4 border-solid">
+                {children}
+              </div>
+            </div>
+          </GameGlobalContext>
+        </UserGlobalContext>
       </body>
     </html>
   );
