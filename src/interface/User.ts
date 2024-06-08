@@ -1,5 +1,4 @@
 import { HelpType } from "../types/key.props";
-import { StackNavigation } from "../types/props.types";
 
 import { ICategory } from "./Game";
 
@@ -8,7 +7,7 @@ export interface IUser {
     amountQuestions: number;
     helps: number;
     categories: ICategory[];
-    optionsAction?: (optionData: IOptionUser, navigation: StackNavigation) => void;
+    optionsAction?: (optionData: IOptionUser) => void;
     categoryAction?: (category: ICategory[]) => void;
     userAction?: (data: IUser) => void;
     categoryAllAction?: (isSelect: boolean) => void;

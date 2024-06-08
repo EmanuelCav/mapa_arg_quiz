@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode, createContext, useReducer } from 'react'
 
 import { IOptionUser, IUser } from '../../interface/User'

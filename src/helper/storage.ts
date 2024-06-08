@@ -1,16 +1,12 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import { EXPO_STORAGE } from '@env';
-
 import { IUser } from '../interface/User';
 
 export const setStorage = (data: IUser) => {
-    AsyncStorage.setItem(`${EXPO_STORAGE}`, JSON.stringify(data))
+    localStorage.setItem(`persist`, JSON.stringify(data))
 }
 
-export const getStorage = async () => {
+export const getStorage = () => {
 
-    const storage = await AsyncStorage.getItem(`${EXPO_STORAGE}`)    
+    const storage = localStorage.getItem(`persist`)    
 
     return storage
 

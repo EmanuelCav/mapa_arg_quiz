@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode, createContext, useReducer } from 'react'
 
 import { Action } from '../../types/props.types'
@@ -15,9 +17,9 @@ const GameGlobalContext = ({ children }: { children: ReactNode }) => {
 
     const [state, dispatch] = useReducer<(state: IGame, action: Action) => IGame>(gameReducer, initialState)
 
-    const gameAction = (allQuestions: IQuestion[], categories: ICategory[], amountQuestions: number, amountOptions: number, isConnection: boolean) => {
+    const gameAction = (allQuestions: IQuestion[], categories: ICategory[], amountQuestions: number, amountOptions: number) => {
 
-        const questions = generateQuestions(allQuestions, categories, amountQuestions, isConnection)
+        const questions = generateQuestions(allQuestions, categories, amountQuestions)
 
         const game = generateGame(questions, allQuestions, amountQuestions, amountOptions)
 

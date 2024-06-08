@@ -20,6 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" href="/icon.png" sizes="any" />
       <body className={inter.className}>
         <UserGlobalContext>
           <GameGlobalContext>
