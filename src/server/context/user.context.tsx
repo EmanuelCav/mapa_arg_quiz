@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode, createContext, useReducer } from 'react'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 import { IOptionUser, IUser } from '../../interface/User'
 import { ICategory } from '../../interface/Game'
@@ -19,7 +20,7 @@ const UserGlobalContext = ({ children }: { children: ReactNode }) => {
 
     const [state, dispatch] = useReducer<(state: IUser, actions: Action) => IUser>(userReducer, initialState)
 
-    const optionsAction = (optionData: IOptionUser) => {
+    const optionsAction = (optionData: IOptionUser, router: AppRouterInstance) => {
 
         try {
 
@@ -38,7 +39,7 @@ const UserGlobalContext = ({ children }: { children: ReactNode }) => {
                 helps: state.helps
             })
 
-            // navigation.goBack()
+            router.back()
 
         } catch (error) {
             console.log(error);

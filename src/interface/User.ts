@@ -1,5 +1,6 @@
-import { HelpType } from "../types/key.props";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
+import { HelpType } from "../types/key.props";
 import { ICategory } from "./Game";
 
 export interface IUser {
@@ -7,7 +8,7 @@ export interface IUser {
     amountQuestions: number;
     helps: number;
     categories: ICategory[];
-    optionsAction?: (optionData: IOptionUser) => void;
+    optionsAction?: (optionData: IOptionUser, router: AppRouterInstance) => void;
     categoryAction?: (category: ICategory[]) => void;
     userAction?: (data: IUser) => void;
     categoryAllAction?: (isSelect: boolean) => void;
