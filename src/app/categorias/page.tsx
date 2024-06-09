@@ -1,12 +1,13 @@
 'use client'
 
 import { useContext, useEffect, useState } from "react"
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 
 import Page from "@/components/general/Page"
 import TitleCategories from "@/components/categories/TitleCategories"
 import ShowCategories from "@/components/categories/ShowCategories"
 import ActionsCategories from "@/components/categories/ActionsCategories"
+import ButtonAccept from "@/components/general/ButtonAccept"
 
 import allQuestions from '../../assets/questions.json';
 
@@ -16,7 +17,6 @@ import { IUser } from "@/interface/User"
 import { UserContext } from "@/server/context/user.context"
 import { GameContext } from "@/server/context/game.context"
 import { LOADING } from "@/server/constants/game.const"
-import ButtonAccept from "@/components/general/ButtonAccept"
 
 const Categorias = () => {
 
@@ -27,26 +27,33 @@ const Categorias = () => {
 
   const [isStart, setIsStart] = useState<boolean>(false)
 
+  const [query, setQuery] = useState<string | null>(null)
 
   const accept = () => {
-    // if (route.params.isPlaying) {
-    //   dispatch!({
-    //     type: LOADING,
-    //     payload: true
-    //   })
+    if (query === "juego") {
+      dispatch!({
+        type: LOADING,
+        payload: true
+      })
 
-    //   setIsStart(true)
+      setIsStart(true)
 
-    //   return
-    // }
+      return
+    }
 
     router.push('/')
   }
 
   useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const myParam = urlParams.get('redirect');
+    setQuery(myParam)
+  }, [])
+  
+  useEffect(() => {
     if (isStart) {
       setIsStart(false)
-      gameAction!(allQuestions, categories, amountQuestions, amountOptions)
+      gameAction!(allQuestions, categories, amountQuestions, amountOptions, router)
       return
     }
 
@@ -61,7 +68,7 @@ const Categorias = () => {
       <TitleCategories />
       <ActionsCategories categoryAllAction={categoryAllAction!} />
       <ShowCategories categories={categories} categoryAction={categoryAction!} />
-      <ButtonAccept isCategory={true} func={accept} text="ACEPTAR" />
+      <ButtonAccept isCategory={categories.filter(c => c.isSelect).length === 0} func={accept} text="ACEPTAR" />
     </Page>
   )
 }

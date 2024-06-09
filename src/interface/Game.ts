@@ -1,4 +1,6 @@
 import { Dispatch } from "react";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+
 import { Action } from "../types/props.types";
 
 export interface ICategory {
@@ -12,7 +14,7 @@ export interface ICategory {
 export interface IGame {
     questions: IQuestion[];
     loading: boolean,
-    gameAction?: (allQuestions: IQuestion[], categories: ICategory[], amountQuesions: number, amountOptions: number) => void;
+    gameAction?: (allQuestions: IQuestion[], categories: ICategory[], amountQuesions: number, amountOptions: number, router: AppRouterInstance) => void;
     dispatch?: Dispatch<Action>;
 }
 

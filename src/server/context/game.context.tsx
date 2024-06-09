@@ -1,6 +1,7 @@
 'use client'
 
 import { ReactNode, createContext, useReducer } from 'react'
+import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime'
 
 import { Action } from '../../types/props.types'
 import { ICategory, IGame, IQuestion } from '../../interface/Game'
@@ -17,7 +18,7 @@ const GameGlobalContext = ({ children }: { children: ReactNode }) => {
 
     const [state, dispatch] = useReducer<(state: IGame, action: Action) => IGame>(gameReducer, initialState)
 
-    const gameAction = (allQuestions: IQuestion[], categories: ICategory[], amountQuestions: number, amountOptions: number) => {
+    const gameAction = (allQuestions: IQuestion[], categories: ICategory[], amountQuestions: number, amountOptions: number, router: AppRouterInstance) => {
 
         const questions = generateQuestions(allQuestions, categories, amountQuestions)
 
@@ -28,9 +29,7 @@ const GameGlobalContext = ({ children }: { children: ReactNode }) => {
             payload: game
         })
 
-        // navigation.navigate('Playing', {
-        //     isConnection
-        // })
+        router.push('/juego')
 
     }
 
