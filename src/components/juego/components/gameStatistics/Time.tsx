@@ -27,7 +27,7 @@ const Time = ({ seconds, minutes, setSeconds, setMinutes, realSeconds, realMinut
     }, [seconds, realSeconds])
 
     return (
-        <p>
+        <p className='text-xl text-teal-500 select-none'>
             {(realMinutes > 0 ? realMinutes : minutes) < 10 ? `0${(realMinutes > 0) ? realMinutes : (minutes === 60) ? 0 : minutes}` : (realMinutes > 0) ? realMinutes : (minutes === 60) ? 0 : minutes}
             :
             {(realSeconds > 0 ? realSeconds : seconds) < 10 ? `0${(realSeconds > 0) ? realSeconds : (seconds === 60) ? 0 : seconds}` : (realSeconds > 0) ? realSeconds : (seconds === 60) ? 0 : seconds}

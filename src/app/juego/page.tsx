@@ -173,7 +173,7 @@ const Juego = () => {
         (isCorrect || isIncorrect) ?
           <Answer answer={isCorrect} correctAnswer={!isGameError ? questions[numberQuestion].answer : gameErrors[numberQuestion].answer} continueGame={continueGame} />
           :
-          <Options options={!isGameError ? questions[numberQuestion].options : gameErrors[numberQuestion].options} nextQuestion={nextQuestion} amountOptions={amountOptions} isHelped={isHelped} optionsHelped={optionsHelped} />
+          <Options options={!isGameError ? questions[numberQuestion].options : gameErrors[numberQuestion].options} nextQuestion={nextQuestion} isHelped={isHelped} optionsHelped={optionsHelped} />
       }
       {
         isPreFinish && <PreFinish preFinish={preFinish} />

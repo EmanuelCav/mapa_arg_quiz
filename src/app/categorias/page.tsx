@@ -68,7 +68,7 @@ const Categorias = () => {
       <TitleCategories />
       <ActionsCategories categoryAllAction={categoryAllAction!} />
       <ShowCategories categories={categories} categoryAction={categoryAction!} />
-      <ButtonAccept isCategory={categories.filter(c => c.isSelect).length === 0} func={accept} text="ACEPTAR" />
+      <ButtonAccept isCategory={query === "juego" ? categories.filter(c => c.isSelect).length === 0 : false} func={accept} text={query === "juego" ? "INICIAR" : "ACEPTAR"} />
     </Page>
   )
 }

@@ -2,7 +2,7 @@ import { QuestionGameStatisticsPropsType } from '../../../../types/juego.types'
 
 const QuestionGameStatistics = ({ questions, numberQuestion }: QuestionGameStatisticsPropsType) => {
     return (
-        <p>{numberQuestion}/{questions}</p>
+        <p className='text-xl text-teal-500 select-none'>{numberQuestion}/{questions}</p>
     )
 }
 

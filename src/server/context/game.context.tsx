@@ -24,6 +24,9 @@ const GameGlobalContext = ({ children }: { children: ReactNode }) => {
 
         const game = generateGame(questions, allQuestions, amountQuestions, amountOptions)
 
+        console.log(game);
+        
+
         dispatch({
             type: GENERATE_GAME,
             payload: game

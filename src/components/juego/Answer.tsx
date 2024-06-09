@@ -4,15 +4,19 @@ import { AnswerPropsType } from '../../types/juego.types'
 
 const Answer = ({ answer, correctAnswer, continueGame }: AnswerPropsType) => {
     return (
-        <div onClick={continueGame}>
+        <div onClick={continueGame} style={{ height: '42%' }}
+            className={answer ? 'cursor-pointer w-full flex justify-around items-center flex-col bg-white p-2 border-4 border-solid border-green-500'
+                : 'cursor-pointer w-full flex justify-around items-center flex-col bg-white p-2 border-2 border-solid border-red-500'
+            }
+        >
             <ResponseAnswer answer={answer} />
             {
                 !answer &&
-                <p>
+                <p className='text-red-500 text-xl'>
                     Respuesta correcta: {correctAnswer}
                 </p>
             }
-            <p>Toca para continuar</p>
+            <p className={answer ? 'text-green-500 text-xl' : 'text-red-500 text-xl'}>Toca para continuar</p>
         </div>
     )
 }

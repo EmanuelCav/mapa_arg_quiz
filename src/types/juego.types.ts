@@ -39,14 +39,12 @@ export type QuestionGameStatisticsPropsType = {
 
 export type OptionPropsTypes = {
     option: string;
-    amountOptions: number;
     nextQuestion: (value: string) => void;
     disabled: boolean;
 }
 
 export type SectionOptionsPropsTypes = {
     options: string[]
-    amountOptions: number;
     nextQuestion: (value: string) => void;
     optionsHelped: string[];
     isHelped: boolean;
