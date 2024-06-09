@@ -10,13 +10,13 @@ const GameStatistics = ({ seconds, minutes, setSeconds, setMinutes, numberQuesti
             {
                 isGameError ?
                     <div style={{ height: '8%' }} className='flex items-center justify-around w-full'>
-                        <Helps isAnswered={isCorrect || isIncorrect || isHelped || helps === 0} helps={helps} changeHelp={changeHelp} />
+                        {/* <Helps isAnswered={isCorrect || isIncorrect || isHelped || helps === 0} helps={helps} changeHelp={changeHelp} /> */}
                     </div> :
                     <div style={{ height: '8%' }} className='flex items-center justify-around w-full'>
                         <Time minutes={minutes} seconds={seconds} setSeconds={setSeconds} setMinutes={setMinutes} realSeconds={realSeconds} realMinutes={realMinutes}
                             isCorrect={isCorrect} isIncorrect={isIncorrect} isFinish={isFinish} isPreFinish={isPreFinish}
                         />
-                        <Helps isAnswered={isCorrect || isIncorrect || isHelped || helps === 0} helps={helps} changeHelp={changeHelp} />
+                        {/* <Helps isAnswered={isCorrect || isIncorrect || isHelped || helps === 0} helps={helps} changeHelp={changeHelp} /> */}
                         <QuestionGameStatistics questions={questions} numberQuestion={numberQuestion} />
                     </div>
             }

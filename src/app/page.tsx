@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useRouter } from "next/navigation";
 
 import Page from '@/components/general/Page';
@@ -13,12 +13,27 @@ import { GameContext } from '@/server/context/game.context';
 import { IGame } from '@/interface/Game';
 import { IUser } from '@/interface/User';
 
+import { getStorage } from '@/helper/storage';
+
 export default function Home() {
 
   const router = useRouter()
 
-  const { categories, amountOptions, amountQuestions } = useContext<IUser>(UserContext)
+  const { categories, amountOptions, amountQuestions, userAction } = useContext<IUser>(UserContext)
   const { dispatch, gameAction } = useContext<IGame>(GameContext)
+
+  useEffect(() => {
+    
+    (async () => {
+
+      const storage = await getStorage()
+
+      if (storage) {
+        userAction!(storage as any)
+      }
+    })()
+
+  }, [])
 
   return (
     <Page>

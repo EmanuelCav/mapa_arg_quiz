@@ -16,10 +16,10 @@ const Finish = ({ seconds, minutes, corrects, questions, showErrors, continueHom
                         :
                         <StatisticsFinish seconds={seconds} minutes={minutes} questions={questions} corrects={corrects} />
                 }
-                {
+                {/* {
                     !isAdd ? <HelpAdd changeHelp={changeHelp} />
                         : <p className='text-center text-xl text-teal-500'>¡Ayudas entregadas!</p>
-                }
+                } */}
                 <ActionsFinish areErrors={corrects < questions} showErrors={showErrors} continueHome={continueHome} />
             </div>
         </div>
