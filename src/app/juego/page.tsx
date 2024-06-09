@@ -94,6 +94,7 @@ const Juego = () => {
 
   const preFinish = () => {
     setIsFinish(true)
+    setIsPreFinish(false)
   }
 
   const showErrors = () => {
@@ -123,9 +124,8 @@ const Juego = () => {
 
     if (type === 'add') {
       setIsAdd(true)
-    } else {
-      router.push('/')
     }
+
   }
 
   const handleHelp = (type: HelpType) => {

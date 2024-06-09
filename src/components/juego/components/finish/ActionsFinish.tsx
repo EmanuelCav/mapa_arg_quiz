@@ -4,7 +4,7 @@ import { ActionsFinishPropsType } from '../../../../types/juego.types'
 
 const ActionsFinish = ({ areErrors, continueHome, showErrors }: ActionsFinishPropsType) => {
   return (
-    <div>
+    <div className='flex justify-evenly items-center flex-col w-full'>
       {
         areErrors &&
         <ButtonFinish text='REPASAR ERRORES' func={showErrors} />

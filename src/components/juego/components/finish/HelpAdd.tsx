@@ -1,16 +1,16 @@
-// import Icon from 'react-native-vector-icons/Entypo'
+import { TfiVideoClapper } from "react-icons/tfi";
 
 import { HelpType } from '../../../../types/key.props'
 
 const HelpAdd = ({ changeHelp }: { changeHelp: (type: HelpType) => void }) => {
     return (
-        <button onClick={() => changeHelp('add')}>
-            <div>
-                <p>Ayudas</p>
-                <p>x2</p>
-                {/* <Icon name='help' color={'#ffffff'} size={Dimensions.get("window").height / 39} /> */}
+        <button onClick={() => changeHelp('add')}
+        className='p-4 w-full mt-4 bg-teal-500 rounded-md text-white text-xl hover:bg-teal-400 active:bg-teal-500'>
+            <div className='mr-2 flex justify-center items-center'>
+                <p className='mr-2 text-xl text-white'>Ayudas</p>
+                <p className='mr-2 text-xl text-white'>x2</p>
+                <TfiVideoClapper color="#ffffff" size={24} />
             </div>
-            {/* <Icon name='video' color={'#ffffff'} size={Dimensions.get("window").height / 37} /> */}
         </button>
     )
 }
