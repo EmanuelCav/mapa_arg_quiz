@@ -9,21 +9,21 @@ export const generateGame = (questions: IQuestion[], allQuestions: IQuestion[], 
         let answersOptions: string[] = []
 
         for (let j = 0; j < options.length; j++) {
-            answersOptions.push(options[j].answer)
+            answersOptions.push(options[j].answer!)
         }
 
         const optionsQuestion: string[] = Array.from(new Set([...answersOptions]))
 
         const optionRandom = Math.floor(Math.random() * amountOptions)
 
-        if (questions[i].options.length > 0) continue
+        if (questions[i].options!.length > 0) continue
 
         for (let j = 0; j < amountOptions; j++) {
 
             if (j === optionRandom) {
-                questions[i].options.push(questions[i].answer)
+                questions[i].options!.push(questions[i].answer!)
             } else {
-                questions[i].options.push(optionsQuestion[j])
+                questions[i].options!.push(optionsQuestion[j])
             }
         }
 

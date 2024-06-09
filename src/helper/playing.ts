@@ -31,7 +31,7 @@ export const correctCategory = (categories: ICategory[], category: string): ICat
 
 export const helpsOptions = (question: IQuestion, amountOptions: number): string[] => {
 
-    const optionsFiltered = shuffle(question.options.filter(o => o !== question.answer)).slice(0, amountOptions / 2)
+    const optionsFiltered = shuffle(question.options!.filter(o => o !== question.answer)).slice(0, amountOptions / 2)
 
     return optionsFiltered
 

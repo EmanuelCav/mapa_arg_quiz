@@ -19,11 +19,11 @@ export interface IGame {
 }
 
 export interface IQuestion {
-    question: string;
+    question?: string;
     image?: string;
-    options: string[];
-    category: string;
+    options?: string[];
+    category?: string;
     text?: string;
-    answer: string;
+    answer?: string;
     isAnswer: boolean;
 }

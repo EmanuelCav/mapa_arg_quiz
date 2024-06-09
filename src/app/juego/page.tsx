@@ -141,7 +141,7 @@ const Juego = () => {
 
   useEffect(() => {
     if (!isGameError) {
-      categoryAction!(countCategory(categories, questions[numberQuestion].category))
+      categoryAction!(countCategory(categories, questions[numberQuestion].category!))
       setOptionsHelped(helpsOptions(questions[numberQuestion], amountOptions))
       return
     }
@@ -152,7 +152,7 @@ const Juego = () => {
 
   useEffect(() => {
     if (isCorrect && !isGameError) {
-      categoryAction!(correctCategory(categories, questions[numberQuestion].category))
+      categoryAction!(correctCategory(categories, questions[numberQuestion].category!))
     }
   }, [corrects])
 
@@ -171,9 +171,9 @@ const Juego = () => {
       />
       {
         (isCorrect || isIncorrect) ?
-          <Answer answer={isCorrect} correctAnswer={!isGameError ? questions[numberQuestion].answer : gameErrors[numberQuestion].answer} continueGame={continueGame} />
+          <Answer answer={isCorrect} correctAnswer={!isGameError ? questions[numberQuestion].answer! : gameErrors[numberQuestion].answer!} continueGame={continueGame} />
           :
-          <Options options={!isGameError ? questions[numberQuestion].options : gameErrors[numberQuestion].options} nextQuestion={nextQuestion} isHelped={isHelped} optionsHelped={optionsHelped} />
+          <Options options={!isGameError ? questions[numberQuestion].options! : gameErrors[numberQuestion].options!} nextQuestion={nextQuestion} isHelped={isHelped} optionsHelped={optionsHelped} />
       }
       {
         isPreFinish && <PreFinish preFinish={preFinish} />
