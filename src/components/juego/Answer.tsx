@@ -12,11 +12,11 @@ const Answer = ({ answer, correctAnswer, continueGame }: AnswerPropsType) => {
             <ResponseAnswer answer={answer} />
             {
                 !answer &&
-                <p className='text-red-500 text-xl'>
+                <p className='text-red-500 text-xl select-none'>
                     Respuesta correcta: {correctAnswer}
                 </p>
             }
-            <p className={answer ? 'text-green-500 text-xl' : 'text-red-500 text-xl'}>Toca para continuar</p>
+            <p className={answer ? 'text-green-500 text-xl select-none' : 'text-red-500 text-xl select-none'}>Toca para continuar</p>
         </div>
     )
 }

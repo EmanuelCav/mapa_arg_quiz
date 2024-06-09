@@ -62,6 +62,7 @@ export const generateQuestions = (allQuestions: IQuestion[], categories: ICatego
 }
 
 export const shuffle = (array: any[]): any[] => {
+
     let currentIndex = array.length, randomIndex;
 
     while (currentIndex > 0) {

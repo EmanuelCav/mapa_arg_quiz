@@ -133,6 +133,12 @@ const Juego = () => {
   }
 
   useEffect(() => {
+    if (questions.length === 0) {
+      router.push('/')
+    }
+  }, [])
+
+  useEffect(() => {
     dispatch!({
       type: LOADING,
       payload: false
@@ -141,8 +147,8 @@ const Juego = () => {
 
   useEffect(() => {
     if (!isGameError) {
-      categoryAction!(countCategory(categories, questions[numberQuestion].category!))
-      setOptionsHelped(helpsOptions(questions[numberQuestion], amountOptions))
+      categoryAction!(countCategory(categories, questions[numberQuestion] && questions[numberQuestion].category!))
+      setOptionsHelped(questions.length > 0 ? helpsOptions(questions[numberQuestion], amountOptions) : [])
       return
     }
 
@@ -152,7 +158,7 @@ const Juego = () => {
 
   useEffect(() => {
     if (isCorrect && !isGameError) {
-      categoryAction!(correctCategory(categories, questions[numberQuestion].category!))
+      categoryAction!(correctCategory(categories, questions[numberQuestion] && questions[numberQuestion].category!))
     }
   }, [corrects])
 
@@ -173,7 +179,7 @@ const Juego = () => {
         (isCorrect || isIncorrect) ?
           <Answer answer={isCorrect} correctAnswer={!isGameError ? questions[numberQuestion].answer! : gameErrors[numberQuestion].answer!} continueGame={continueGame} />
           :
-          <Options options={!isGameError ? questions[numberQuestion].options! : gameErrors[numberQuestion].options!} nextQuestion={nextQuestion} isHelped={isHelped} optionsHelped={optionsHelped} />
+          <Options options={!isGameError ? questions.length > 0 ? questions[numberQuestion].options! : [] : gameErrors.length > 0 ? gameErrors[numberQuestion].options! : []} nextQuestion={nextQuestion} isHelped={isHelped} optionsHelped={optionsHelped} />
       }
       {
         isPreFinish && <PreFinish preFinish={preFinish} />

@@ -47,7 +47,7 @@ const Menu = ({ router, categories, dispatch, gameAction, amountQuestions, amoun
     }, [isStart])
 
     return (
-        <div className="h-3/4 flex items-center justify-around flex-col">
+        <div className="h-2/3 flex items-center justify-around flex-col">
             <ButtonMenu text="INICIAR" route='categorias' func={start} />
             <ButtonMenu text="CATEGORIAS" route='categorias' func={redirect} />
             <ButtonMenu text="OPCIONES" route='opciones' func={redirect} />
