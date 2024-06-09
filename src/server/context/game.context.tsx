@@ -22,10 +22,7 @@ const GameGlobalContext = ({ children }: { children: ReactNode }) => {
 
         const questions = generateQuestions(allQuestions, categories, amountQuestions)
 
-        const game = generateGame(questions, allQuestions, amountQuestions, amountOptions)
-
-        console.log(game);
-        
+        const game = generateGame(questions, allQuestions, amountQuestions, amountOptions)        
 
         dispatch({
             type: GENERATE_GAME,

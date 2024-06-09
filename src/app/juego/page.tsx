@@ -53,7 +53,7 @@ const Juego = () => {
   const [gameErrors, setGameErrors] = useState<IQuestion[]>([])
 
   const [helpType, setHelpType] = useState<HelpType>('help')
-  const [optionsHelped, setOptionsHelped] = useState<string[]>(helpsOptions(questions[numberQuestion], amountOptions))
+  const [optionsHelped, setOptionsHelped] = useState<string[]>(questions.length > 0 ? helpsOptions(questions[numberQuestion], amountOptions) : [])
 
   const nextQuestion = (value: string) => {
 
